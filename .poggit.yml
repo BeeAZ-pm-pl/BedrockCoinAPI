@@ -1,0 +1,8 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/BeeAZZ/BedrockCoinAPI
+build-by-default: true
+branches:
+- master
+projects:
+  BedrockCoinAPI:
+    path: ""
+...
