@@ -1,0 +1,38 @@
+name: BedrockCoinAPI
+main: BeeAZZ\BedrockCoinAPI\Main
+author: BeeAZZ
+api: 4.0.0
+version: 0.0.1
+
+commands:
+ addcoin:
+  description: Add Coins For Player
+  permission: bedrockcoinapi.command.addcoin
+ mycoin:
+  description:  View Your Coins
+  permission: bedrockcoinapi.command.mycoin
+ seecoin:
+  description: See Coin Player
+  permission: bedrockcoinapi.command.seecoin
+ setcoin:
+  description: Set Player Coin
+  permission: bedrockcoinapi.command.setcoin
+ topcoin:
+  description: Top Coin
+  permission: bedrockcoinapi.command.topcoin
+ paycoin:
+  description: Pay Coin
+  permission: bedrockcoinapi.command.paycoin
+permissions:
+ bedrockcoinapi.command.addcoin:
+  default: op
+ bedrockcoinapi.command.mycoin:
+  default: true
+ bedrockcoinapi.command.seecoin:
+  default: op
+ bedrockcoinapi.command.setcoin:
+  default: op
+ bedrockcoinapi.command.topcoin:
+  default: true
+ bedrockcoinapi.command.paycoin:
+  default: true
