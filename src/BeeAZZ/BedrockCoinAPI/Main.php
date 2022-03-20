@@ -107,7 +107,7 @@ class Main extends PluginBase implements Listener {
      $sender->sendMessage("Usage: /addcoin <player> <amount>");
        }
       }else{
-      $sender->sendMessagd("Please Use Command In Game");
+      $sender->sendMessage("Please Use Command In Game");
       }
       break;
       }
@@ -194,7 +194,7 @@ class Main extends PluginBase implements Listener {
       $this->reduceCoin($sender, $args[1]);
       $this->addCoin($player2, $args[1]);
      $sender->sendMessage(str_replace(["{player}", "{coin}"], [$args[0], $args[1]], $this->getConfig()->get("player-paycoin")));
-     $player->sendMessage(str_replace(["{player}", "{coin}"], [$sender->getName(), $args[1]], $this->getConfig()->get("player-receive-paycoin")));
+     $player2->sendMessage(str_replace(["{player}", "{coin}"], [$sender->getName(), $args[1]], $this->getConfig()->get("player-receive-paycoin")));
              }else{
       $sender->sendMessage($this->getConfig()->get("not-enough-money"));
            }
