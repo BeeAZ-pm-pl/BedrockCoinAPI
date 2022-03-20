@@ -8,6 +8,9 @@ commands:
  addcoin:
   description: Add Coins For Player
   permission: bedrockcoinapi.command.addcoin
+ takecoin:
+  description: Take Coin From Player
+  permission: bedrockcoinapi.command.takecoin
  mycoin:
   description:  View Your Coins
   permission: bedrockcoinapi.command.mycoin
@@ -36,3 +39,5 @@ permissions:
   default: true
  bedrockcoinapi.command.paycoin:
   default: true
+ bedrockcoinapi.command.takecoin:
+  default: op

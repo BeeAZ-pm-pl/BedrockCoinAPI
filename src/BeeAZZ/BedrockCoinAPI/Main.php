@@ -81,6 +81,36 @@ class Main extends PluginBase implements Listener {
   
   public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
     switch($cmd->getName()){
+      case "takecoin":
+      if($sender instanceof Player){
+      if($sender->hasPermission("bedrockcoinapi.command.takecoin")){
+      if(isset($args[0])){
+      if(isset($args[1])){
+      if($this->getServer()->getPlayerByPrefix($args[0]) !== null){
+      if(is_numeric($args[1])){
+      $player = $this->getServer()->getPlayerByPrefix($args[0]);
+      $this->reduceCoin($player, $args[1]);
+      $ev = new CoinChangeEvent($this, $player);
+      $ev->call();
+      $sender->sendMessage(str_replace(["{player}", "{coin}"], [$args[0], $args[1]], $this->getConfig()->get("player-reducecoin")));
+      $player->sendMessage(str_replace("{coin}", $args[1], $this->getConfig()->get("player-receive-reducecoin")));
+      }else{
+       $sender->sendMessage("Please enter the amount in digits !");
+      }
+      }else{
+       $sender->sendMessage($this->getConfig()->get("no-player"));
+      }
+      }else{
+     $sender->sendMessage("Usage: /addcoin <player> <amount>");
+                }
+       }else{
+     $sender->sendMessage("Usage: /addcoin <player> <amount>");
+       }
+      }else{
+      $sender->sendMessagd("Please Use Command In Game");
+      }
+      break;
+      }
       case "addcoin":
       if($sender instanceof Player){
       if($sender->hasPermission("bedrockcoinapi.command.addcoin")){
@@ -107,7 +137,7 @@ class Main extends PluginBase implements Listener {
      $sender->sendMessage("Usage: /addcoin <player> <amount>");
        }
       }else{
-      $sender->sendMessage("Please Use Command In Game");
+      $sender->sendMessagd("Please Use Command In Game");
       }
       break;
       }
@@ -194,7 +224,7 @@ class Main extends PluginBase implements Listener {
       $this->reduceCoin($sender, $args[1]);
       $this->addCoin($player2, $args[1]);
      $sender->sendMessage(str_replace(["{player}", "{coin}"], [$args[0], $args[1]], $this->getConfig()->get("player-paycoin")));
-     $player2->sendMessage(str_replace(["{player}", "{coin}"], [$sender->getName(), $args[1]], $this->getConfig()->get("player-receive-paycoin")));
+     $player->sendMessage(str_replace(["{player}", "{coin}"], [$sender->getName(), $args[1]], $this->getConfig()->get("player-receive-paycoin")));
              }else{
       $sender->sendMessage($this->getConfig()->get("not-enough-money"));
            }
